@@ -16,7 +16,7 @@ export class RegistrationComponent {
       email: ['', [Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}')]],
       gender: ['male'],
       country: ['', [Validators.minLength(5)]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
       });
     
