@@ -1,0 +1,15 @@
+
+<form [formGroup]="myForm">
+    <div formArrayName="dynamicElements">
+      <div *ngFor="let element of dynamicElementForms.controls; let i = index">
+        <div [formGroupName]="i">
+          <input type="text" formControlName="name" placeholder="Name"><br>
+          <input type="text" formControlName="state" placeholder="State"><br>
+          <input type="text" formControlName="country" placeholder="Country"><br>
+          <button class="btn btn-primary"(click)="removeDynamicElement(i)">Remove Element</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button class="btn btn-dark" (click)="addDynamicElement()">Add Dynamic Element</button>
+  

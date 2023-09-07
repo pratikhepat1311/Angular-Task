@@ -1,0 +1,16 @@
+ [
+    {
+      "id": 1,
+      "name": "Pratik",
+      "address": "Wardha",
+      "mobileNo": "8181019101",
+      "email": "pratik@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Luffy",
+      "address": "Grand Line",
+      "mobileNo": "9118292000",
+      "email": "luffy@gmail.com"
+    }
+  ]

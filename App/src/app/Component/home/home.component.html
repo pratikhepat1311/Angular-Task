@@ -1,0 +1,88 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My WebPage</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark"
+        style="background-color: rgb(36, 143, 172); height: 100px;">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li clas="nav-item">
+                        <a class="nav-link" style="font-size: 22px" href="#" routerLink="/Home">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: 22px" href="#" routerLink="/Login">User Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: 22px" href="#" routerLink="/Registration">User
+                            Registration</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="./home.component.css" />
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <div class="menu"></div> -->
+        <h2>String Interpolation.</h2>
+        <p>{{ username }}</p>
+
+        <h2>Event binding.</h2>
+        <button (click)="handleClick()">Click button</button>
+        <p>{{ message }}</p>
+
+        <h2>Property binding</h2>
+        <button [textContent]="buttonText"></button>
+        
+        <h2>Style Binding Example</h2>
+
+<div [style.backgroundColor]="backgroundColor">
+  My name is Pratik.
+</div>
+<h2>Toggle Example</h2>
+<button (click)="showMessage = !showMessage">Toggle</button>
+<div *ngIf="showMessage">{{ toggle }}</div>
+
+
+<h2>Increment and Decrement</h2>
+<div class="container mt-2">
+    <button class="btn btn-primary" (click)="increment()">Primary Button</button>
+    <button class="btn btn-secondary" (click)="decrement()">Secondary Button</button>
+  </div>
+  
+  <p [appChangeBgColor]="count > 0 ? 'Skyblue' : count < 0 ? 'Red' : 'Orange'">{{ count }}</p>
+
+  
+
+  <h2>Display Json Data</h2>
+  <ul *ngIf="jsonData">
+    <li *ngFor="let item of jsonData">
+      <strong>Name:</strong> {{ item.name }} <br>
+      <strong>Address:</strong> {{ item.address }} <br>
+      <strong>ID:</strong> {{ item.id }} <br>
+      <strong>Mobile No:</strong> {{ item.mobileNo }} <br>
+      <strong>Email:</strong> {{ item.email }} <br><br>
+    </li>
+  </ul>
+     
+  <!-- <a routerLink="/login-component"><input type="button" value="User Registration"></a> <br>&nbsp;&nbsp;
+  <a routerLink="/registration-component"><input type="button" value="Registration"></a><br> -->

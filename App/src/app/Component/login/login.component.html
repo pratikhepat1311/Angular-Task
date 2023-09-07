@@ -1,0 +1,78 @@
+<div class="container mt-5">
+
+    <h2>User Registration Form(Template Driven Form)</h2>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="form-group">
+
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName"
+                required minlength="2" #firstNameInput="ngModel" />
+            <div *ngIf="firstNameInput.invalid && (firstNameInput.dirty || firstNameInput.touched)" class="text-danger">
+                <div *ngIf="firstNameInput.errors?.['required']">First Name is required.</div>
+                <div *ngIf="firstNameInput.errors?.['minlength']">Minimum length is 2 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName"
+                pattern="[a-zA-Z]+" #lastNameInput="ngModel" />
+            <div *ngIf="lastNameInput.invalid && (lastNameInput.dirty || lastNameInput.touched)" class="text-danger">
+                <div *ngIf="lastNameInput.errors?.['pattern']">Only letters are allowed.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" #emailInput="ngModel" />
+            <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                <div *ngIf="emailInput.errors?.['pattern']">Invalid email format.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select class="form-control" id="gender" name="gender" [(ngModel)]="user.gender" required
+                #genderInput="ngModel">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <div *ngIf="genderInput.invalid && (genderInput.dirty || genderInput.touched)" class="text-danger">
+                <div *ngIf="genderInput.errors?.['required']">Gender is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" class="form-control" id="country" name="country" [(ngModel)]="user.country" minlength="5"
+                #countryInput="ngModel" />
+            <div *ngIf="countryInput.invalid && (countryInput.dirty || countryInput.touched)" class="text-danger">
+                <div *ngIf="countryInput.errors?.['minlength']">Minimum length is 5 characters.</div>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="user.password" required
+                #password="ngModel" />
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                <div *ngIf="password.errors?.['required']">Minimum length is 6 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="user.confirmPassword"
+                required appPasswordMatch="password">
+            <div *ngIf="userForm.hasError('passwordMismatch', 'confirmPassword')" class="text-danger">
+                Passwords do not match.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">
+            Submit
+        </button>
+    </form>
+</div>
